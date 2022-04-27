@@ -1,0 +1,39 @@
+<div id="header" class="shadow">
+    <span id="logo">
+        <a href="/" class="no_link">
+            {{restaurant_name}}
+        </a>
+    </span>
+    {{#authorizedUser}}
+        {{^authorizedUser.admin}}
+            <a id="menu_block" href="/orders" class="no_link">
+                My order
+            </a>
+        {{/authorizedUser.admin}}
+        <a id="menu_block" href="/itemsToOrder" class="no_link">
+            Menu
+        </a>
+        {{#authorizedUser.admin}}
+            <a id="menu_block" href="/users" class="no_link">
+                Users
+            </a>
+            <a id="menu_block" href="/settings" class="no_link">
+                Settings
+            </a>
+        {{/authorizedUser.admin}}
+    {{/authorizedUser}}
+    <a href="/about" id="menu_block" class="no_link">
+        About
+    </a>
+    {{#authorizedUser}}
+        <a href="/users/{{authorizedUser._id}}" class="no_link" id="menu_block" style="width: 8vw;padding-left:4vw;padding-right:2vw;">
+            {{authorizedUser.fullname}}
+        </a>
+    {{/authorizedUser}}
+    {{^authorizedUser}}
+        <a href="/auth/login" class="no_link" id="menu_block" style="width: 8vw;padding-left:4vw;padding-right:2vw;">
+            Login
+        </a>
+    {{/authorizedUser}}
+
+</div>

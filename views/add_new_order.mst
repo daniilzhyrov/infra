@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Menu</title>
+    {{ > partials/head}}
+</head>
+<body>
+    {{ > partials/header}}
+    <form class = "form" method="post" enctype="multipart/form-data" style = "margin-top : 6%">
+        <p class="emphasized form_legend">Create new order</p>
+        {{#noItemsSelectedError}}
+            <a style="color: red;margin-left: 1%;">You should select at least one item to proceed.</a>
+        {{/noItemsSelectedError}}
+        {{#serverError}}
+            <a style="color: red;margin-left: 1%;">Server error occured.</a>
+        {{/serverError}}
+        {{^serverError}}
+        {{^users}}
+            <a style="color: red;margin-left: 1%;">You should create at least one user to proceed.</a>
+        {{/users}}
+        {{#users.length}}
+        {{^items}}
+            <a style="color: red;margin-left: 1%;">You should create at least one item to proceed.</a>
+        {{/items}}
+        {{#items.length}}
+        <form method="post">
+            <p class="emphasized_big">
+                User:<br><select name="user" style = "font-size : 1.7vmin;">
+                    <option disabled>Choose user</option>
+                    {{#users}}
+                        <option label="{{login}}">{{id}}</option>
+                    {{/users}}
+                </select>
+            </p>
+
+            <p class="emphasized_big" style="margin-bottom : 2%;">
+                Choose item to order:
+            </p>
+            <div style = "height : 5%; overflow : scroll;">
+                {{#items}}
+                    <div>
+                        <input name="{{_id}}" type="checkbox"><font style="font-weight : 300; line-height : 1.8em;"> {{name}}</font>
+                    </div>
+                {{/items}}
+            </div>
+        
+        <div id="new_item_button_outer" style = "margin-top : 5%;">
+            <label for="submit" id="new_item_label">
+                <div class="new_item_button_inner">
+                    Submit
+                </div>
+            </label>
+        </div>
+        <input type="submit" id="submit" hidden/>
+        {{/items.length}}
+        {{/users.length}}
+        {{/serverError}}
+    </form>
+
+    {{ > partials/footer}}
+</body>
+</html>

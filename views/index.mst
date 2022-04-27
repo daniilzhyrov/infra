@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" style = "height : 100%">
+<head>
+    <title>Restaurant</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+
+    <div class="center" style="font-size: 2.2vmin; font-weight: 300;">
+        <p style="letter-spacing: 6px;">
+            WELCOME
+        </p>
+        <p class="emphasized" style="margin-top: 8.8vh; margin-bottom: 12.8vh; letter-spacing: 5px; font-size: 500%;">
+            {{restaurant_name}}
+        </p>
+        <br>
+        <p style="letter-spacing: 2px; line-height: 1.4em;">
+            Our restaurant can be privatized from Tuesday to Saturday, for lunch and dinner.
+            <br> 
+            Our parking valet is always available.
+            <br>
+            All gentlemen are requested to wear a jacket.
+            <br>
+            We accept any kind of payment method, except checks.
+        </p> 
+    </div>
+    {{ > partials/footer}}
+</body>
+</html>

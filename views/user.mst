@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    {{ > partials/head}}
+    <title>{{user.login}}</title>
+</head>
+<body>
+    {{ > partials/header}}
+    {{^error}}
+        <div style="width: 100%; height : 34vh; background-size: cover; background-image: url('/images/restaurant.jpg');">
+            <div style = "margin-left : 20vw; padding-top: 16vh; display: table;">
+                <div style="display: table-cell; width: 50vw;">
+                    <p class = "emphasized" style = "font-size : 4.8vmin; margin-top: 0; margin-bottom: 0">{{#owner}}Hi, {{/owner}}{{user.fullname}}</p>
+                    <p style = "font-size : 2.7vmin; margin-top : 1.8vh;">{{#owner}}Your username is {{/owner}}{{user.login}}</p>
+                </div>
+                {{#owner}}
+                    <div style="display: table-cell; vertical-align: middle; text-align: center;">
+                        <div id="logout_button" class="new_item_button_inner" style="padding : 1.8vh; width : 8vw; font-weight : 300; color: rgb(56, 56, 56);">
+                            Sign out
+                        </div>
+                    </div>
+                {{/owner}}
+            </div>
+        </div>
+        <div class="table" style="margin-top : 1vh; width : 60vw;">
+            <div id="user_table_content" style = "width : 50vw; margin : 0 auto">
+                {{#user}}
+                    <div class="user_table_content_box">
+                        <a class="utc_box_lable">
+                            Details
+                        </a>
+                        <span class="utc_box_content" style="width: 50%;">
+                            <div class="utc_box_content_subbox">
+                                <span class="utc_box_content_subbox_column">
+                                    <a class="faded">
+                                        USER ROLE
+                                    </a>
+                                    <br>
+                                    {{^authorizedUser.admin}}
+                                        {{role}}
+                                    {{/authorizedUser.admin}}
+                                    {{#authorizedUser.admin}}
+                                        <form method="post" action="/users/{{id}}/update" enctype="multipart/form-data">
+                                            <select name="role" style = "font-size : 1.7vmin;" onchange="this.form.submit()">
+                                                <option disabled>Choose role</option>
+                                                {{#role}}
+                                                    <option {{#current}}selected{{/current}} value="{{roleId}}">{{roleName}}</option>
+                                                {{/role}}
+                                            </select>
+                                        </form>
+                                    {{/authorizedUser.admin}}
+                                </span>
+                            </div>
+                            <div class="utc_box_content_subbox">
+                                <span class="utc_box_content_subbox_column">
+                                    <a class="faded">
+                                        SING UP DATE
+                                    </a>
+                                    <br>
+                                    {{user.registeredAt}}
+                                </span>
+                            </div>
+                            <div class="utc_box_content_subbox">
+                                <span class="utc_box_content_subbox_column">
+                                    <a class="faded">
+                                        NUMBER OF YOUR ORDERS
+                                    </a>
+                                    <br>
+                                    0
+                                </span>
+                            </div>
+                        </span>
+                        <span class="utc_box_content">
+                            {{#user.avaUrl}}
+                                <img src="{{user.avaUrl}}" alt="user photo" style="width: 100%; height: auto;vertical-align: top; border-radius: 3vmin;">
+                            {{/user.avaUrl}}
+
+                            {{^user.avaUrl}}
+                                <img src="/images/defaultUserImage.jpg" alt="user photo" style=" width: 100%;height: auto;vertical-align: top;border-radius: 3vmin;">
+                            {{/user.avaUrl}}
+
+                        </span>
+                    </div>
+                </div>
+                <div id="user_table_content" style = "width : 60vw;">
+                    {{#canMakeChanges}}
+                        <div class="user_table_content_box" style="margin-top:2vh;text-align : center;">
+                            <div style="display:inline-block; margin-left:2vw; margin-right:2vw;">
+                                <form action="/auth/logout" method="post">
+                                    <label for="submitEdit" id="new_item_label">
+                                        <div class="new_item_button_inner" style="padding : 1.8vh; width : 12vw; font-weight : 100; color: rgb(56, 56, 56);">
+                                            Edit
+                                        </div>
+                                    </label>
+                                    <!--input type="submit" id="submitEdit" hidden/-->
+                                </form>
+                            </div>
+                            <div style="display:inline-block; margin-left:2vw; margin-right:2vw;">
+                                <form action="/auth/logout">
+                                    <label for="submitOrders" id="new_item_label">
+                                        <div class="new_item_button_inner" style="padding : 1.8vh; width : 12vw; font-weight : 300; color: rgb(56, 56, 56);">
+                                            Order history
+                                        </div>
+                                    </label>
+                                    <!--input type="submit" id="submitOrders" hidden/-->
+                                </form>
+                            </div>
+                            <div style="display:inline-block; margin-left:2vw; margin-right:2vw;">
+                                <div onclick = "show_form()" class="new_item_button_inner" style="margin: 0; padding : 1.8vh; width : 12vw; font-weight : 300; color: red;">
+                                    Delete account
+                                </div>
+                            </div>
+                        </div>
+                    {{/canMakeChanges}}
+                {{/user}}
+                {{^user}}
+                    <div class="user_table_content_box" style="text-align : center; width: 100%; margin : 1.2%;">
+                        Unnable to load user data because of server error
+                    </div>
+                {{/user}}
+            </div>
+        </div>
+    {{/error}}
+    {{#error}}
+        <div style="width : 100%; margin-top : 38vh; text-align : center; font-size: 2.2vmin;">
+            Unnable to load data because of server error
+        </div>
+    {{/error}}
+    {{ > partials/footer}}
+
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+<script src='/javascripts/logout.js'></script>
+<script id = "{{user.id}}" {{#owner}}owner="owner"{{/owner}} src='/javascripts/confirmation_form.js'></script>

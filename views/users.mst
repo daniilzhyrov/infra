@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Users</title>
+    {{ > partials/head}}
+</head>
+<body>
+    {{ > partials/header}}
+    {{^error}}
+        <div class="table" style = "width: 50%; margin-top : 14vh; height: 64.8vh;">
+            <div>
+                <form method="GET" action="?page=1">
+                    <input type="text" name="query" id="user_search_field" placeholder="Search by username" maxlength="32" class="input_field">
+                    <script type="text/javascript">
+                        document.getElementById('user_search_field').value = '{{query}}';
+                    </script>
+                    <input type="image" src="/images/search.png" alt="Search" id="item_search_submit_button"/>
+                </form>
+            </div>
+            <div class = "table_row" style = "margin-top: 3vh; margin-bottom: 2vh;">
+                <div class = "table_cell" style="width : 14vw">
+                    Username
+                </div>
+                <div class = "table_cell" style="width : 14vw">
+                    Fullname
+                </div>
+                <div class = "table_cell" style="width : 8vw">
+                    Role
+                </div>
+            </div>
+            {{#users}}
+                <div class = "table_row">
+                    <a href = "/users/{{id}}" class="no_link">
+                        <div class = "table_cell" style="width : 14vw">
+                            {{login}}
+                        </div>
+                        <div class = "table_cell" style="width : 14vw">
+                            {{fullname}}
+                        </div>
+                        <div class = "table_cell" style="width : 8vw">
+                            {{role}}
+                        </div>
+                    </a>
+                </div>
+            {{/users}}
+        </div>
+        {{#showPageSelector}}
+            <div style = "text-align : center; margin-top : 1.6vh;">
+                <a href="?page={{prevPage}}{{#query}}&query={{query}}{{/query}}" class = "no_link" style="{{^prevPage}} visibility: hidden; {{/prevPage}}">
+                    <div class="arrow_button">
+                        <font style = "font-size : 2.8vmin;">
+                            <
+                        </font>
+                    </div>
+                </a>
+                Page
+                <select onchange="document.location=this.options[this.selectedIndex].value">
+                    {{#pages}}
+                        <option {{#current}}selected{{/current}} value="?page={{page}}{{#query}}&query={{query}}{{/query}}">{{page}}</option>
+                    {{/pages}}
+                </select>
+                of {{pages.length}}
+                <a href="?page={{nextPage}}{{#query}}&query={{query}}{{/query}}" class = "no_link" style="{{^nextPage}} visibility: hidden; {{/nextPage}}">
+                    <div class="arrow_button">
+                        <font style = "font-size : 2.8vmin;">
+                            >
+                        </font>
+                    </div>
+                </a>
+            </div>
+        {{/showPageSelector}}
+    {{/error}}
+    {{#error}}
+        <div style="width : 100%; margin-top : 38vh; text-align : center; font-size: 2.2vmin;">
+            Unnable to load data because of server error
+        </div>
+    {{/error}}
+    {{ > partials/footer}}
+</body>
+</html>

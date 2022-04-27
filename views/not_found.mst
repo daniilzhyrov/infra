@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" style = "height : 100%">
+<head>
+    <title>Not found</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+
+    <div class="table" style="margin-top : 27vh;font-size: 6vmin; font-weight: 300; text-align : center;">
+        The page you're looking<br>for can't be found
+        <div style ="width : 8vw; margin : 8vh auto">
+            <a href = "/" class = "no_link" id = "new_item_label" >
+                <div class="new_item_button_inner" style="padding : 1.8vh; font-weight : 300; color: rgb(56, 56, 56);">
+                    Home
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {{ > partials/footer}}
+</body>
+</html>

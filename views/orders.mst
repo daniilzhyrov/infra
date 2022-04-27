@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Menu</title>
+    {{ > partials/head}}
+</head>
+<body>
+    {{ > partials/header}}
+
+    <div class="table" style="margin-top: 20vh; height: 50%;">
+        <div>
+            {{#orders}}
+                <span class="menu_table_box_item">
+                    <a href="/orders/{{id}}" class="no_link">
+                    <div class="card_view shadow" style="padding: 1.5%;">
+                        <p class="emphasized_big" style="">
+                            {{customerName}}
+                        </p>
+                        <div style = "height : 27vmin; overflow : scroll; line-height : 1.6em;font-size : 2.5vmin; ">
+                            {{#items}}
+                                <div>{{.}}</div>
+                            {{/items}}
+                        </div>
+                        <form action="/orders/{{id}}/delete" method="post" enctype="multipart/form-data">
+                            <input type="text" id="page" name="page" value="{{currentPage}}" hidden>
+                            <input type="image" src="/images/delete.png" style="margin: 4%; width: 10%;">
+                        </form>
+                    </div>
+                    </a>
+                </span>
+            {{/orders}}
+        </div>
+        {{^orders}}
+            {{^error}}
+                <div style="width : 100%; margin-top : 32%; text-align : center; font-size: 2.2vmin;">
+                    {{^searchedItem}}
+                        There's nothing to view at yet :(
+                    {{/searchedItem}}
+                    {{#searchedItem}}
+                        Nothing was found. Try another search term.
+                    {{/searchedItem}}
+                </div>
+            {{/error}}
+            {{#error}}
+                <div style="width : 100%; margin-top : 32%; text-align : center; font-size: 2.2vmin;">
+                    Unnable to load data because of server error
+                </div>
+            {{/error}}
+        {{/orders}}
+    </div>
+    {{#showPageSelector}}
+        <div style = "text-align : center; margin-top : 4%;">
+            <a href="?page={{prevPage}}{{#searchedItem}}&searchedItem={{searchedItem}}{{/searchedItem}}" class = "no_link" style="{{^prevPage}} visibility: hidden; {{/prevPage}}">
+                <div class="arrow_button">
+                    <font style = "font-size : 2.8vmin;">
+                        <
+                    </font>
+                </div>
+            </a>
+            Page
+            <select onchange="document.location=this.options[this.selectedIndex].value">
+                {{#pages}}
+                    <option {{#current}}selected{{/current}} value="?page={{page}}{{#searchedItem}}&searchedItem={{searchedItem}}{{/searchedItem}}">{{page}}</option>
+                {{/pages}}
+            </select>
+            of {{pages.length}}
+            <a href="?page={{nextPage}}{{#searchedItem}}&searchedItem={{searchedItem}}{{/searchedItem}}" class = "no_link" style="{{^nextPage}} visibility: hidden; {{/nextPage}}">
+                <div class="arrow_button">
+                    <font style = "font-size : 2.8vmin;">
+                        >
+                    </font>
+                </div>
+            </a>
+        </div>
+    {{/showPageSelector}}
+
+    {{ > partials/footer}}
+</body>
+</html>

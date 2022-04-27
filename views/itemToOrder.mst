@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{{item.name}}</title>
+    {{ > partials/head}}
+</head>
+<body>
+    {{ > partials/header}}
+
+    <div class="table" style = "margin-top : 16vh;">
+        {{#item}}
+            <div class="menu_table_box_item" style="width: 100%;">
+                <font class="emphasized_big" >
+                    {{item.name}}
+                </font>
+                {{#admin}}
+                    <form method="POST" action = "delete" style = "display : inline-block">
+                        <input type="image" src="/images/delete.png" alt="delete" id="item_search_submit_button" style="width: 1.6vw;"/>
+                    </form>
+                {{/admin}}
+            </div>
+        {{/item}}
+        
+        <div class="menu_table_box"> 
+            {{#item}}
+                <span class="menu_table_box_item" style="width: 40%;">
+                    <div style="height: 28vw; background-color : rgb(235, 235, 235); border-radius: 2vmin; overflow : hidden;">
+                        <img src="{{item.imageUrl}}" alt="meal {{item.id}}" style="width: auto; height: 28vw; display: block; margin: 0 auto;">
+                    </div>
+                </span> 
+                <span class="menu_table_box_item" style ="width: 40%;" >
+                    <p class="menu_table_box_item_description_item" style = "margin-top : 2%;margin-bottom : 4%;">
+                        <b>Weight:</b> {{item.weight}}
+                    </p>
+                    <p class="menu_table_box_item_description_item" style = "margin-top : 2%;margin-bottom : 4%;">
+                        <b>Price:</b> {{item.price}}
+                    </p>
+                    <div style="margin-top : 8 %;max-height: 23vw; overflow-y: scroll; overflow-x: visible;">
+                        <pre style="margin : 0%;"><a style = "word-wrap: break-word; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{item.description}}</a></pre>
+                    </div>
+                </span>
+            {{/item}}
+            {{^item}}
+                <div style="text-align : center; width: 100%; margin-top : 40vh;">
+                    Unnable to load data because of server error
+                </div>
+            {{/item}}
+        </div>
+    </div>
+    {{ > partials/footer}}
+</body>
+</html>

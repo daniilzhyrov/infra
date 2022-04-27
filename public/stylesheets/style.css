@@ -1,0 +1,364 @@
+html, body {
+        padding: 0%;
+        margin: 0%;
+        background-color: rgb(245, 245, 245);
+        width: 100%;
+        min-width: 800px;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+footer {
+        font-size: 1.8vmin;
+        text-align: center;
+        font-weight: 300;
+        letter-spacing: 2px;
+        line-height: 1.4em;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 5%;
+
+}
+
+#item_search_field {
+        font-size: 3vmin;
+        margin-left: 2%;
+        height: 5vmin;
+        width: 90%;
+}
+
+#user_search_field {
+        font-size: 3vmin;
+        height: 4vh;
+        width: 92%;
+}
+
+#new_item_label {
+        font-size: 2vmin;
+}
+
+.form_input {
+        width: 94%;
+        height : 5vmin;
+        font-size: 3vmin;
+        margin-top: 2vh;
+        line-height: 150%;
+        resize: none;
+}
+
+.file_input {
+        visibility: hidden;
+}
+
+.button_outer {
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 2%;
+        margin-bottom: 6%;
+}
+
+#new_item_button_outer {
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 2%;
+        margin-bottom: 6%;
+}
+
+.new_item_button_inner {
+        margin: 0 auto;
+        text-align: center;
+        padding: 5%;
+        border-radius: 2vmin;
+        background-color: rgb(230, 230, 230);
+        opacity: 0.8;
+        padding-top: 6%;
+        padding-bottom: 6%;
+        transition: all 200ms ease;
+}
+
+.new_item_button_inner:hover {
+        transition: all 200ms ease;
+        background-color: rgb(225, 225, 225);
+}
+
+.content_centered {
+        display: flex;
+        justify-content: center;
+}
+
+.input_field {
+        background-color: rgb(235, 235, 235);
+        border: none;
+        outline: none;
+        padding-top: 0.8vh;
+        padding-bottom: 0.8vh;
+        padding-left: 1.1vw;
+        padding-right: 0.5vw;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        border-radius: 1vmin;
+        transition: all 200ms ease;
+}
+
+.input_field:hover {
+        background-color: rgb(232, 232, 232);
+        transition: all 200ms ease;
+}
+
+#item_search_submit_button {
+        margin-left: 1%;
+        width: 2%;
+}
+
+#header {
+        background-color: rgb(250, 250, 250);
+        width: 100%;
+        display: table;
+        position: fixed;
+        top: 0%;
+        opacity: 0.8;
+        z-index: 8;
+}
+
+#logo {
+        display: table-cell;
+        font-weight: 600;
+        font-size: 4vh;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 10%;
+}
+
+#menu {
+        width: 30%;
+        display: table;
+        font-weight: 300;
+        text-align: center;
+        vertical-align: middle;
+}
+
+#menu_block {
+        width: 6%;
+        font-weight: 300;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: rgb(56, 56, 56);
+}
+
+#menu_block:hover {
+        transition: all 200ms ease;
+        color: rgb(128, 128, 128);
+}
+
+.table {
+        margin: 0 auto;
+        margin-top: 16vh;
+        width: 70%;
+}
+
+#user_table_list {
+        border-top: 1px solid rgb(160, 160, 160);
+        border-bottom: 1px solid rgb(160, 160, 160);
+}
+
+.user_table_list_item {
+        font-weight: 300;
+        color: rgb(56, 56, 56);
+        display: inline-block;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+}
+
+.hoverable:hover {
+        transition: all 200ms ease;
+        color: rgb(128, 128, 128);
+}
+
+#user_table_content {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.user_table_content_box {
+        width: 100%;
+        display: table;
+        padding-top: 3%;
+        padding-bottom: 3%;
+}
+
+.utc_box_lable {
+        display: table-cell;
+        width: 27%;
+        font-weight: 600;
+        font-size: x-large;
+}
+
+.utc_box_content {
+        display: table-cell;
+        line-height: 1.6;
+}
+
+.utc_box_content_subbox {
+        margin-top: 3%; 
+        margin-bottom: 3%; 
+        display: table;
+        width: 100%;
+}
+
+.utc_box_content_subbox_column {
+        display: table-cell;
+        width: 50%;
+}
+
+.emphasized {
+        font-weight: 600;
+}
+
+.faded {
+        font-weight: 100;
+        color: rgb(128, 128, 128);
+}
+
+.shadow {
+        transition: all 200ms ease;
+        box-shadow: 0px 4px 8px 4px rgb(177, 177, 177);
+}
+
+.shadow:hover {
+        transition: all 200ms ease;
+        box-shadow: 0px 4px 9px 5px rgb(177, 177, 177);
+}
+
+.scale{
+        transition: all 200ms ease;
+        transform: scale(1.001);
+}
+
+.scale:hover{
+        transition: all 200ms ease;
+        transform: scale(1.001);
+}
+
+.no_link {
+        color: inherit;
+        text-decoration: inherit;
+}
+
+.center {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        -ms-transform: translateY(-48%) translateX(-50%);
+        transform: translateY(-48%) translateX(-50%);
+}
+
+.menu_table_box {
+        margin-top: 1%; 
+        margin-bottom: 2%; 
+        display: block;
+        width: 100%;
+        margin-bottom: 5%;
+}
+
+.menu_table_box_item {
+        padding-top: 2%;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-bottom: 0%;
+        display: inline-block;
+        vertical-align: top;
+        font-weight: 300;
+        width : 29%;
+
+}
+
+#menu_table_box_item_description_item {
+        margin-bottom: 1%;
+        max-height: 5vmin;
+}
+
+.emphasized_big {
+        font-weight: 600;
+        font-size: x-large;
+}
+
+#background_restaurant {
+        background-image: url("/images/restaurant.jpg");
+        background-size: cover;
+        height: 100%;
+}
+
+.arrow_button {
+        height: 2.8vmin;
+        width: 2.8vmin;
+        text-align: center;
+        margin-left : 4%;
+        margin-right : 4%;
+        padding: 1%;
+        border-radius: 50%;
+        display: inline-block;
+        transition: all 200ms ease;
+}
+
+.arrow_button:hover {
+        transition: all 200ms ease;
+        background-color: rgb(232, 232, 232);
+}
+
+.card_view {
+        background-color: rgb(250, 250, 250);
+        border-radius: 3vmin;
+        text-align : center;
+}
+
+.table_row {
+        width: 100%;
+        transition: all 200ms ease;
+        background-color: rgb(235, 235, 235);
+}
+
+.table_row:hover {
+        transition: all 200ms ease;
+        background-color: rgb(228, 228, 228);
+}
+
+.table_cell {
+        display:inline-block;
+        padding : 1.8vh 2.2vw;
+}
+
+.text_container {
+        font-size: large;
+        line-height: 1.6;
+        font-weight: 300;
+}
+
+.text_container_title {
+        font-size: 220%;
+}
+
+.form {
+        margin-top : 8%;
+        margin: 0 auto;
+        width: 30%;
+        overflow: hidden;
+        padding-left: 2vw;
+        padding-right: 2vw;
+}
+
+.form_error {
+        color: red;
+        margin-left: 1%;
+}
+
+.form_legend {
+        font-size: 4.8vmin;
+        margin-top: 4vh;
+        margin-bottom: 2%;
+}

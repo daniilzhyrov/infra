@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en" style = "height : 100%">
+<head>
+    <title>API</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+
+    <div class="table" style="font-size: large; line-height: 1.8; font-weight: 300; height : 80vh; margin-top: 10vh; text-align: center; width : auto;">
+        <a class="emphasized" style="font-size: 6.4vmin; margin : 0;">
+            API<br>
+        </a>
+        <p style="font-size: 2.7vmin; margin-top : -1.6vh; margin-bottom : 1.6vh;">
+            Authorization via basic auth for all api requests.<br>
+        </p>
+        <div style = "overflow-x : scroll; overflow-y : visible; white-space: nowrap;padding : 1.6vh 0;">
+            
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw; margin-left : 8vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : green">GET</font> /me</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/me
+                    </div>
+                    Get short info about your account.<br>
+                    Parameters:
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : green">GET</font> /users</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/users?page=1&numberOfRecordsOnAPage=1&query=danechka
+                    </div>
+                    Get list of users. Available only for admins.<br>
+                    Parameters:
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                page
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Page you want to go to
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.2vw; width : 3vw;">
+                                number...<br>OfRecords...<br>OnAPage
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Number of records you'd like to get on a page
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                query
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Search by username
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : orange">POST</font> /register</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/register
+                    </div>
+                    Create new user. Returns id or error.<br>
+                    Parameters:
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.6vw; width : 3vw">
+                                username
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Username. Must be one world, no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                fullname
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Full name of user. Must be no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.6vw; width : 3vw">
+                                password
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Password. Must be no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                role
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                0 - user, 1 - admin. Available only for admins.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.6vw; width : 3vw">
+                                is_disabled
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                0 - user account enabled, 1 - disabled. Available only for admins.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : green">GET</font> /users/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/users/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Get info about account by id.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : blue">PUT</font> /users/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/users/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Update user data by id. Returns message.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.6vw; width : 3vw">
+                                username
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Username. Must be one word, no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                fullname
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Full name of user. Must be no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.6vw; width : 3vw">
+                                password
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Password. Must be no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                role
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                0 - user, 1 - admin. Available only for admins.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.6vw; width : 3vw">
+                                is_disabled
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                0 - user account enabled, 1 - disabled. Available only for admins.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : red">DELETE</font> /users/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/users/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Delete account by id. Returns message.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : green">GET</font> /itemsToOrder</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/itemsToOrder?page=1&numberOfRecordsOnAPage=1&query=danechka
+                    </div>
+                    Get list of menu items.<br>
+                    Parameters:
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                page
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Page you want to go to
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.2vw; width : 3vw;">
+                                number...<br>OfRecords...<br>OnAPage
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Number of records you'd like to get on a page
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                query
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Search by item name
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : orange">POST</font> /itemsToOrder</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/itemsToOrder
+                    </div>
+                    Create new item. Returns id.<br>
+                    Parameters:
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                name
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Name. Must no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.4vw; width : 3vw">
+                                description
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Description. Must be no longer than 512 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                weight
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Weight. Must be a numeric value, no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                price
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Price. Must be a numeric value, no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.4vw; width : 3vw">
+                                image
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Photo of menu item. No bigger than 5 mb.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : green">GET</font> /itemsToOrder/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/itemsToOrder/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Get info about item by id.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : blue">PUT</font> /itemsToOrder/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/itemsToOrder/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Update item data by id. Returns message.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                name
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Name. Must no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.4vw; width : 3vw">
+                                description
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Description. Must be no longer than 512 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                weight
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Weight. Must be a numeric value, no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                price
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Price. Must be a numeric value, no longer than 32 characters.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.4vw; width : 3vw">
+                                image
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Photo of menu item. No bigger than 5 mb.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : red">DELETE</font> /itemsToOrder/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/itemsToOrder/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Delete item by id. Returns message.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : green">GET</font> /orders</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/orders?page=1&numberOfRecordsOnAPage=1
+                    </div>
+                    Get list of orders.<br>
+                    Parameters:
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row" style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                page
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Page you want to go to
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.2vw; width : 3vw;">
+                                number...<br>OfRecords...<br>OnAPage
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Number of records you'd like to get on a page
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : orange">POST</font> /orders</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/orders
+                    </div>
+                    Create new order. Returns id.<br>
+                    Parameters:
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.1vw; width : 3vw">
+                                customer_id
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Customer id. Must be id of a real user.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                items
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                true
+                            </td>
+                            <td style = "padding : 0.4vh 0.4vw; width : 8vw; line-height: 1.2em;">
+                                Array of menu item ids. Values separated by comma, without any whitespases.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : green">GET</font> /orders/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/orders/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Get info about order by id.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : blue">PUT</font> /orders/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/orders/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Update order data by id. Returns message.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 0.1vw; width : 3vw">
+                                customer_id
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                Customer id. Must be id of a real user.
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                items
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                false
+                            </td>
+                            <td style = "padding : 0.4vh 0.4vw; width : 8vw; line-height: 1.2em;">
+                                Array of menu item ids. Values separated by comma, without any whitespases.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class = "card_view shadow" style = "display : inline-block; width : 22vw;height : 60vh; padding : 1vh 2vw; margin : 0 2vw; margin-right : 8vw;">
+                <font class = "emphasized" style="font-size: 3.2vmin;"><font style = "color : red">DELETE</font> /orders/:id</font> 
+                <div style = "overflow-y: scroll; height : 50vh; text-align: left; white-space: normal;margin-top : 1.6vh;">
+                    <div style="background-color : rgb(220, 220, 220); border-radius : 0.8vmin; padding : 0.1vh 0.4vw; overflow-y : scroll; height: 4vh;white-space: nowrap;font-size : 2.2vmin; width : 96%">
+                        /api/v1/orders/5dc4ac9cb808bb904989d950
+                    </div>
+                    <font style = "line-height : 1em;">
+                        Delete order by id. Returns message.<br>
+                        Parameters:
+                    </font>
+                    <table>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Key
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                Required
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw">
+                                Description
+                            </td>
+                        </tr>
+                        <tr class = "table_row"style = "width : 100%;">
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 3vw">
+                                -
+                            </td>
+                            <td style = "padding : 0.4vh 1vw; width : 8vw; line-height: 1.2em;">
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {{ > partials/footer}}
+</body>
+</html>

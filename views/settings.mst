@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    {{ > partials/head}}
+    <title>{{user.login}}</title>
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+    
+    
+    <form method="post" class = "form card_view shadow" style="text-align:left; margin-top : 12vh;" enctype="multipart/form-data">
+        <p class="emphasized form_legend" style = "text-align : center; margin-bottom : 1vh;">
+            Settings
+        </p>
+        <p class="form_error" style = "text-align : center; margin-bottom : 1vh;">
+            {{#emptyFieldsError}}
+                Some fields are empty.
+            {{/emptyFieldsError}}
+            {{#longValuesError}}
+                Some values are too long.
+            {{/longValuesError}}
+            {{#fileTypeError}}
+                Uploaded file is not image or file extension is not supported.
+            {{/fileTypeError}}
+            {{#fileSizeError}}
+                File size exceeded limit. Max file size 5mb.
+            {{/fileSizeError}}
+            {{#serverError}}
+                Server error occured.
+            {{/serverError}}
+            {{#requestError}}
+                Request error.
+            {{/requestError}}
+        </p>
+        Restaurant name:
+        <input required type="text" name="restaurant_name" maxlength="32" placeholder="Restaurant name" class="input_field form_input" value="{{restaurant_name}}" style="margin-top : 0.8vh; margin-bottom : 2vh;">
+        Contacts:
+        <input required type="text" name="restaurant_contacts" maxlength="32" placeholder="Contacts" class="input_field form_input" value="{{current_contacts}}" style="margin-top : 0.8vh; margin-bottom : 2vh;">
+        Address:
+        <input required type="text" name="restaurant_address" maxlength="32" placeholder="Address" class="input_field form_input" value="{{current_address}}" style="margin-top : 0.8vh; margin-bottom : 2vh;">
+        <input type="file" name="image" class="file_input" id="restaraunt_logo_input" accept="image/jpeg"/>
+        <div class = "button_outer" style="margin-top : 0vh">
+            <label for="restaraunt_logo_input" id="new_item_label">
+                <div class="new_item_button_inner">
+                    Upload restaurant logo
+                </div>
+            </label>
+        </div>
+        <div id="new_item_button_outer" style = "margin-top : 2vh; margin-bottom : 4vh;">
+            <label for="submit" id="new_item_label">
+                <div class="new_item_button_inner">
+                    Submit
+                </div>
+            </label>
+        </div>
+        <input type="submit" id="submit" hidden/>
+    </form>
+    
+    
+    <div id="new_item_button_outer" style = "margin-top : 5vh;width : 16%; margin-bottom : 0">
+        <a href = "/settings/rooms" class="no_link">
+            <div class="new_item_button_inner">
+                Manage restaurant rooms
+            </div>
+        </a>
+    </div>
+    
+
+    {{ > partials/footer}}
+
+</body>
+</html>

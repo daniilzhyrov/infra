@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{{order.customer.fullname}}</title>
+    {{ > partials/head}}
+</head>
+<body>
+    {{ > partials/header}}
+
+    <div class="center" style="width : 40%;">
+        
+        <div class="card_view shadow" style="padding: 1.5%;">
+            <form method="post" action="/orders/{{order._id}}/update" enctype="multipart/form-data">
+                <p class="emphasized_big" style = "margin-left: 8%; text-align : left; font-size : 1.8em">
+                    User: <select name="customerId" style = "margin-left: 1%;font-size : 1.7vmin;" onchange="this.form.submit()">
+                            <option disabled>Choose user</option>
+                            {{#users}}
+                                <option {{#current}}selected{{/current}} value="{{_id}}">{{login}}</option>
+                            {{/users}}
+                        </select>
+                </p>
+            </form>
+            <div style = "margin-top: 8%;margin-bottom: 4%; overflow : scroll; line-height : 1.8em;font-size : 3.2vmin; max-height : 35vh;">
+                <form method="post" action="/orders/{{order._id}}/update" enctype="multipart/form-data">
+                    {{#items}}
+                        <div><input {{#checked}}checked{{/checked}} name="{{_id}}" type="checkbox" onchange="this.form.submit()" style> {{name}}</div>
+                    {{/items}}
+                </form>
+            </div>
+            <form action="/orders/{{order._id}}/delete" method="post" enctype="multipart/form-data">
+                <input type="image" src="/images/delete.png" style="margin: 4%; width: 5%;">
+            </form>
+        </div>
+
+    </div>
+    {{ > partials/footer}}
+</body>
+</html>

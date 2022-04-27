@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>About</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+
+    <div class="center text_container">
+        <img src = "{{logoUrl}}" alt="logo" style="border-radius : 2vmin; width: 8vw;">
+        <br>
+        <a class="emphasized text_container_title">
+            {{restaurant_name}}
+        </a>
+        <br>
+        <div style="margin-bottom : 1vh;">
+            website v. 1.0
+        </div>
+        made by <a href="http://t.me/daniilzhyrov" class="no_link" style="text-decoration: underline;"><u>Danya Zhyrov</u></a>
+        <br>
+        supported by <a href="https://progbase.herokuapp.com" class="no_link"><u>ProgBase</u></a>
+        <br>
+        {{contacts}}
+        <br>
+        {{address}}
+    </div>
+
+    {{ > partials/footer}}
+</body>
+</html>

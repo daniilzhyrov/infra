@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Menu</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+    <form class = "form card_view shadow center" method="post" enctype="multipart/form-data">
+        <p class="emphasized form_legend">Create new item</p>
+        <a class="form_error">
+            {{#fieldsWasNotFilledError}}
+                You should fill all fields to proceed.
+            {{/fieldsWasNotFilledError}}
+            {{#fieldsAreTooLongError}}
+                Some values are too long.
+            {{/fieldsAreTooLongError}}
+            {{#fileSizeError}}
+                File size exceeded limit. Max file size 5mb.
+            {{/fileSizeError}}
+            {{#fileTypeError}}
+                Uploaded file is not image or file extension is not supported.
+            {{/fileTypeError}}
+            {{#serverError}}
+                Server error occured.
+            {{/serverError}}
+            {{#dataTypeError}}
+                Weigth and price should be numeric data.
+            {{/dataTypeError}}
+            {{#numberValuesAreNotPositiveError}}
+                Weigth and price should be positive values.
+            {{/numberValuesAreNotPositiveError}}
+        </a>
+        <input required type="text" name="name" maxlength="32" placeholder="Name" class="input_field form_input" onkeydown="return event.key != 'Enter';">
+        <textarea required name="description" maxlength="512" class="input_field form_input" placeholder="Description" style="margin-left: 0.2vw; height: 16vmin"></textarea>
+        <div style="width: 100%; text-align : left; margin-left : 0.2vw;">
+            <div style="display: inline-block; width : 45.4%;">
+                <input required type="number" name="weight" maxlength="32" placeholder="Weight" class="input_field form_input" onkeydown="return event.key != 'Enter';">
+            </div>
+            <div style="display: inline-block; width : 45.4%; margin-left : 5%;">
+                <input required type="number" name="price" maxlength="32" placeholder="Price" class="input_field form_input">
+            </div>
+        </div>
+        
+        <div>
+            <input type="file" name="image" class="file_input" id="new_item_input_file" accept="image/jpeg"/>
+            <br>
+            <div id="new_item_button_outer">
+                <label for="new_item_input_file" id="new_item_label">
+                    <div class="new_item_button_inner">
+                        Upload item image
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div id="new_item_button_outer">
+            <label for="submit" id="new_item_label">
+                <div class="new_item_button_inner">
+                    Submit
+                </div>
+            </label>
+        </div>
+        <input type="submit" id="submit" hidden/>
+    </form>
+
+    {{ > partials/footer}}
+</body>
+</html>

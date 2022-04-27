@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <title>Menu</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+    {{^alreadySignedInWarning}}
+
+        <div class = "center">
+            {{#mustLogin}}
+                <div id="info" class = "shadow card_view form" style = "margin-bottom : 2vh;">
+                    <p style = "font-size: 2vmin; font-weight : 300;">
+                        You must sing in first
+                    </p>
+                </div>
+            {{/mustLogin}}
+
+            <form class = "shadow card_view form" id = "login_form" style = "padding-left: 1.5%;padding-right: 1.5%; z-index : 1;">
+                <p class="emphasized form_legend" style="margin-top: 0% margin-bottom: 4%">Sign in</p>
+                <div style="margin-top: 5%;">
+                    {{#loginOrPasswordIsIncorrectError}}
+                        <a style="color: red;margin-left: 1%;">Login or password was entered incorectly.</a>
+                    {{/loginOrPasswordIsIncorrectError}}
+                    {{#serverError}}
+                        <a style="color: red;margin-left: 1%;">Server error occured.</a>
+                    {{/serverError}}
+                </div>
+                <input required type="text" name="username" maxlength="32" pattern = "^[a-zA-Z0-9]+$" placeholder="Login" class="input_field form_input" onkeydown="return event.key != 'Enter';">
+                <input required type="password" name="password" maxlength="32" placeholder="Password" class="input_field form_input">
+
+                <div id="new_item_button_outer" style = "margin-top : 8%; margin-bottom : 10%;">
+                    <label for="submit" id="new_item_label">
+                        <div class="new_item_button_inner">
+                            Submit
+                        </div>
+                    </label>
+                </div>
+                <input type="submit" id="submit" hidden/>
+                <p style = "margin-bottom:2vw; font-size: 2vmin; font-weight : 300;">
+                    Do not have an account? <a href = "/auth/register">Register</a>
+                </p>
+            </form>
+        </div>
+    {{/alreadySignedInWarning}}
+    {{#alreadySignedInWarning}}
+        <div class="center" style="font-size : 2.7vmin;"> 
+            You have already signed in.
+            <div id = "logout_button" class="new_item_button_inner" style="font-size : medium; margin-top : 2vh; padding : 1.8vh; width : 8vw; font-weight : 300; color: rgb(56, 56, 56);">
+                Sign out
+            </div>
+        </div>
+    {{/alreadySignedInWarning}}
+
+    {{ > partials/footer}}
+</body>
+</html>
+
+<script src='/javascripts/logout.js'></script>
+<script redirect="{{redirect}}" src='/javascripts/login.js'></script>

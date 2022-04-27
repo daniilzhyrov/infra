@@ -1,0 +1,15 @@
+<div class="center shadow card_view" style = "width : 27vw; height : 22vh; z-index : 27; opacity : 1">
+    <p style="font-size : 4vmin; font-weight : 200">
+        Are you sure?
+    </p>
+
+    <div style = "margin-top : 0vh;">
+        <div onclick="hide_form()" class="new_item_button_inner" style="padding : 1.8vh; width : 8vw; font-weight : 300; color: rgb(56, 56, 56);display: inline-block; margin-right : 2vw;">
+            Cancel
+        </div>
+        <div onclick="confirm()" class="new_item_button_inner" style="padding : 1.8vh; width : 8vw; font-weight : 300; color: red; display: inline-block;">
+            Yes
+        </div>
+    </div>
+    
+</div>

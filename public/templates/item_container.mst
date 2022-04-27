@@ -1,0 +1,77 @@
+{{^error}}
+    <div>
+        <input type="text" name="query" id="item_search_field" placeholder="Search by name" maxlength="32" class="input_field" value="{{query}}">
+        <img onclick="filterItems(document.getElementById('item_search_field').value)" src="/images/search.png" alt="Search" id="item_search_submit_button"/>
+    </div>
+{{/error}}
+<div>
+    {{#items}}
+        <a href="/itemsToOrder/{{id}}" class="no_link menu_table_box_item" style = "height: 55vh;">
+            <div style="height: 35vh; background-color : rgb(235, 235, 235); border-radius: 2vmin; overflow : hidden;">
+                <img src="{{imageUrl}}" alt="meal {{id}}" style="width: auto; height: 35vh; display: block; margin: 0 auto;">
+            </div>
+            <div>
+                <p class="emphasized_big" style="margin-bottom : 4%; margin-top:5%;">
+                    {{name}}
+                </p>
+                <p style = "margin: 0%; margin-bottom : 2%;">
+                    <font class="emphasized">Weight:</font> {{weight}}
+                </p>
+                <p style = "margin: 0%; margin-bottom : 4%;">
+                    <font class="emphasized">Price:</font> {{price}}
+                </p>
+                <div>
+                    <div style="max-height: 6vh; overflow: scroll;">
+                        <pre style="margin : 0%;"><p class="menu_table_box_item_description_item" style = "word-wrap: break-word; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin: 0%;">{{description}}</p></pre>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {{/items}}
+    {{^items}}
+        <div style="height: 33vh; padding-top : 22vh;">
+            {{^error}}
+                <div style="width : 100%;  text-align : center; font-size: 2.2vmin;">
+                    {{^query}}
+                        There's nothing to view at yet :(
+                    {{/query}}
+                    {{#query}}
+                        Nothing was found. Try another search term.
+                    {{/query}}
+                </div>
+            {{/error}}
+            {{#error}}
+                <div style="width : 100%; margin-top : 16vh; text-align : center; font-size: 2.2vmin;">
+                    Unnable to load data because of server error                
+                </div>
+            {{/error}}
+        </div>
+    {{/items}}
+</div>
+{{#items.length}}
+    {{#showPageSelector}}
+        <div style = "text-align : center; margin-top : 1%;">
+            <a onclick="prevPage()" class = "no_link" style="{{^prevPage}} visibility: hidden; {{/prevPage}}">
+                <div class="arrow_button">
+                    <font style = "font-size : 2.8vmin;">
+                        <
+                    </font>
+                </div>
+            </a>
+            Page
+            <select onchange="loadPage(this.options[this.selectedIndex].value)">
+                {{#pages}}
+                    <option {{#current}}selected{{/current}} value="{{page}}">{{page}}</option>
+                {{/pages}}
+            </select>
+            of {{pages.length}}
+            <a onclick="nextPage()" class = "no_link" style="{{^nextPage}} visibility: hidden; {{/nextPage}}">
+                <div class="arrow_button">
+                    <font style = "font-size : 2.8vmin;">
+                        >
+                    </font>
+                </div>
+            </a>
+        </div>
+    {{/showPageSelector}}
+{{/items.length}}

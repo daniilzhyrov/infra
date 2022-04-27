@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" style = "height : 100%">
+<head>
+    <title>Not found</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+
+    <div id="main_container" class="table" style="margin-top : 27vh;font-size: 6vmin; font-weight: 300; text-align : center;">
+        {{#alreadyAuthorized}}
+            You've already authorized
+        {{/alreadyAuthorized}}
+        {{^alreadyAuthorized}}
+            {{#alreadyAuthorizedWithAnotherId}}
+                You've already authorized from another telegram account. Are you going to reauthorize with new?
+            {{/alreadyAuthorizedWithAnotherId}}
+            {{^alreadyAuthorizedWithAnotherId}}
+                Are you sure you want to authorize in telegram?
+            {{/alreadyAuthorizedWithAnotherId}}
+            <div style ="width : 8vw; margin : 8vh auto">
+                <div id="submit" class="new_item_button_inner" style="padding : 1.8vh; font-weight : 300; color: rgb(56, 56, 56); font-size : 40% ">
+                    Yes, I am
+                </div>
+            </div>
+        {{/alreadyAuthorized}}
+    </div>
+
+    {{ > partials/footer}}
+</body>
+</html>
+
+<script user_id="{{authorizedUser._id}}" telegram_id="{{telegram_id}}" src='/javascripts/bot_auth.js'></script>

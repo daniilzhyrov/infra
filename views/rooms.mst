@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    {{ > partials/head}}
+    <title>{{user.login}}</title>
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+    
+    
+    <div class = "table">
+    </div>
+    
+
+    {{ > partials/footer}}
+
+</body>
+</html>

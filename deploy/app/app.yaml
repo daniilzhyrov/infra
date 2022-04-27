@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: infra
+spec:
+  selector:
+    matchLabels:
+      name: app
+  template:
+    metadata:
+      labels:
+        name: app
+    spec:
+      containers:
+      - name: app
+        image: daniilzhyrov/app
+        imagePullPolicy: Always
+        command: ["npm"]
+        args:
+          - "start"
+        ports:
+        - containerPort: 8888
+      restartPolicy: Always

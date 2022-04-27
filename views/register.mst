@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <title>Menu</title>
+    {{ > partials/head}}
+</head>
+<body id="background_restaurant">
+    {{ > partials/header}}
+    <form id="register_form" class = "shadow card_view form" enctype="multipart/form-data" style = "margin-top: 14vh;padding-left: 1.5%;padding-right: 1.5%">
+        <p class="emphasized form_legend" style="margin-top: 0% margin-bottom: 4%">Sign up</p>
+        <div style="margin-top: 5%;">
+            {{#fieldsWasNotFilledError}}
+                <a style="color: red;margin-left: 1%;">You should fill all fields to proceed.</a>
+            {{/fieldsWasNotFilledError}}
+            {{#valuesAreTooLongError}}
+                <a style="color: red;margin-left: 1%;">Values should be no longer than 32 symbols.</a>
+            {{/valuesAreTooLongError}}
+            {{#loginIsAlreadyUsedError}}
+                <a style="color: red;margin-left: 1%;">Entered login is already used.</a>
+            {{/loginIsAlreadyUsedError}}
+            {{#loginMustBeASingleWordError}}
+                <a style="color: red;margin-left: 1%;">Login must be a single word.</a>
+            {{/loginMustBeASingleWordError}}
+            {{#serverError}}
+                <a style="color: red;margin-left: 1%;">Server error occured.</a>
+            {{/serverError}}
+        </div>
+        <a id="password_alert" hidden style="color: red;margin-left: 1%;">Passwords must match</a>
+        <input required type="text" name="login" pattern = "^[a-zA-Z0-9]+$" maxlength="32" placeholder="Login" class="input_field form_input" onkeydown="return event.key != 'Enter';">
+        <input required type="text" name="fullname" maxlength="32" placeholder="Full name" class="input_field form_input">
+        <input required type="password" name="password" id="password" maxlength="32" placeholder="Password" class="input_field form_input">
+        <input required type="password" name="confirm_password" id="confirm_password" maxlength="32" placeholder="Confirm password" class="input_field form_input">
+
+        <div id="new_item_button_outer" style = "margin-top : 8%; margin-bottom : 10%;">
+            <label for="submit" id="new_item_label">
+                <div class="new_item_button_inner">
+                    Submit
+                </div>
+            </label>
+        </div>
+        <input type="submit" id="submit" hidden/>
+
+        <p style = "margin-bottom:2vw; font-size: 2vmin; font-weight : 300;">
+            Already have an account? <a href = "/auth/login">Login</a>
+        </p>
+    </form>
+
+    {{ > partials/footer}}
+</body>
+</html>
+
+<script src='/javascripts/register.js'></script>
